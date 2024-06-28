@@ -2,32 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply font-secondary bg-secondary text-base text-primary;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-primary;
+  }
+  .h1 {
+    @apply text-[64px] leading-none xl:text-[72px] xl:leading-[76px];
+  }
+  .h2 {
+    @apply text-[48px] leading-[54px];
+  }
+  .h3 {
+    @apply text-[36px] leading-[48px];
+  }
+  .h4 {
+    @apply text-xl;
+  }
+  .lead {
+    @apply text-lg mb-8;
+  }
+  a {
+    @apply font-primary;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.btn {
+  @apply bg-accent min-w-[178px] rounded-tl-[30px] rounded-bl-[30px] rounded-tr-[4px] rounded-br-[24px] font-primary uppercase tracking-[1px] h-[58px] pl-8 pr-6 flex items-center justify-center text-white;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.input {
+  @apply bg-white h-[54px] px-6 rounded-full;
+}
+
+.textarea {
+  @apply h-[120px] rounded-[20px] px-6 pt-4 resize-none;
+}
+
+.input,
+.textarea {
+  @apply outline-none ring-1 ring-accent/80 focus:ring-accent focus:ring-1 font-primary text-sm uppercase placeholder:text-primary text-primary;
 }

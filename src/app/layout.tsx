@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Marcellus, Montserrat } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import CursorProvider from "@/components/CursorContext";
+import Transition from "@/components/Transition";
+import PageTransition from "@/components/PageTransition";
 
-const inter = Inter({ subsets: ["latin"] });
+const marcellus = Marcellus({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-marcellus",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <body
+        className={`${marcellus.variable} ${montserrat.variable} overflow-x-hidden`}
+      >
+        <CursorProvider>
+          <Transition />
+          <Header />
+          <PageTransition>{children}</PageTransition>
+        </CursorProvider>
+      </body>
     </html>
   );
 }
