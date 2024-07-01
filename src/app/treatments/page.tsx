@@ -1,7 +1,8 @@
+import TreatmentsPageContainer from "@/components/containers/TreatmentsPageContainer";
 import React from "react";
 
 const TreatmentsPage = () => {
-  return <div>TreatmentsPage</div>;
+  return <TreatmentsPageContainer />;
 };
 
 export default TreatmentsPage;

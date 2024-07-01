@@ -1,7 +1,7 @@
-import React from "react";
+import AboutPageContainer from "@/components/containers/AboutPageContainer";
 
 const AboutPage = () => {
-  return <div>AboutPage</div>;
+  return <AboutPageContainer />;
 };
 
 export default AboutPage;
